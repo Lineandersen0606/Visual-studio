@@ -1,0 +1,124 @@
+/* GLOBALT */
+body {
+    margin: 0;
+    font-family: "Times New Roman", Times, serif;
+    background: #F7EFE7;
+    color: #3A2E25;
+}
+
+/* APP WRAPPER */
+.app {
+    max-width: 430px; /* iPhone bredde */
+    margin: auto;
+    padding: 20px;
+}
+
+/* HEADER */
+h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #6A4E39;
+}
+
+/* KNAPPER */
+button {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* NAV KNAPPER */
+.navBtn {
+    background: #6A4E39;
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* OPRET EVENT KNAP */
+#openFormBtn {
+    background: #C9A78A;
+    color: white;
+}
+
+/* FORM */
+#formContainer {
+    background: white;
+    padding: 15px;
+    border-radius: 16px;
+    margin-top: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.hidden {
+    display: none;
+}
+
+/* INPUT FELTER */
+input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    margin: 8px 0;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 1px solid #E0D6CF;
+    background: #FDF9F6;
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* EVENT CARD */
+.event {
+    background: white;
+    padding: 18px;
+    margin-top: 18px;
+    border-radius: 18px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    transition: 0.2s;
+}
+
+.event:hover {
+    transform: translateY(-2px);
+}
+
+/* EVENT TITEL */
+.event h2 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    color: #6A4E39;
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* META INFO */
+.meta {
+    font-size: 15px;
+    color: #6A4E39;
+    margin: 5px 0;
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* TILMELD KNAP */
+.join {
+    background: #6A4E39;
+    color: white;
+    margin-top: 12px;
+}
+
+/* MELD FRA / SLET */
+.event button {
+    background: #E8DCD3;
+    color: #3A2E25;
+    margin-top: 10px;
+}
+
+.event button:hover {
+    background: #D8C8BC;
+}
