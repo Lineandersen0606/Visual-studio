@@ -2,13 +2,13 @@
 body {
     margin: 0;
     font-family: "Times New Roman", Times, serif;
-    background: #F7EFE7;
-    color: #3A2E25;
+    background: #FFFFFF; /* ren hvid som i infografikken */
+    color: #3A3F2D; /* jordfarvet tekst */
 }
 
 /* APP WRAPPER */
 .app {
-    max-width: 430px; /* iPhone bredde */
+    max-width: 430px;
     margin: auto;
     padding: 20px;
 }
@@ -16,10 +16,10 @@ body {
 /* HEADER */
 h1 {
     text-align: center;
-    font-size: 28px;
+    font-size: 30px;
     margin-bottom: 20px;
     font-weight: 700;
-    color: #6A4E39;
+    color: #4A6B3C; /* mørk grøn */
 }
 
 /* KNAPPER */
@@ -29,7 +29,7 @@ button {
     padding: 14px;
     border: none;
     border-radius: 14px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
@@ -38,24 +38,25 @@ button {
 
 /* NAV KNAPPER */
 .navBtn {
-    background: #6A4E39;
+    background: #4A6B3C; /* mørk grøn */
     color: white;
     margin-bottom: 10px;
 }
 
 /* OPRET EVENT KNAP */
 #openFormBtn {
-    background: #C9A78A;
+    background: #F4A7B9; /* 🌸 pastel lyserød */
     color: white;
 }
 
 /* FORM */
 #formContainer {
-    background: white;
+    background: #FFF9E9; /* varm gul/beige */
     padding: 15px;
     border-radius: 16px;
     margin-top: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border: 3px solid #F7C6D0; /* lyserød kant */
 }
 
 .hidden {
@@ -70,19 +71,21 @@ input {
     margin: 8px 0;
     font-size: 16px;
     border-radius: 12px;
-    border: 1px solid #E0D6CF;
-    background: #FDF9F6;
+    border: 1px solid #A8D39F; /* mild grøn */
+    background: #F9FDF7; /* meget lys grønlig hvid */
     font-family: "Times New Roman", Times, serif;
 }
 
 /* EVENT CARD */
 .event {
-    background: white;
+    background: #FFFFFF;
     padding: 18px;
     margin-top: 18px;
     border-radius: 18px;
     box-shadow: 0 4px 14px rgba(0,0,0,0.08);
     transition: 0.2s;
+    border-left: 6px solid #8CCB8A; /* mild grøn accent */
+    border-bottom: 4px solid #F7C6D0; /* lyserød bund */
 }
 
 .event:hover {
@@ -92,33 +95,31 @@ input {
 /* EVENT TITEL */
 .event h2 {
     margin: 0 0 10px 0;
-    font-size: 20px;
-    color: #6A4E39;
-    font-family: "Times New Roman", Times, serif;
+    font-size: 22px;
+    color: #4A6B3C; /* mørk grøn */
 }
 
 /* META INFO */
 .meta {
-    font-size: 15px;
-    color: #6A4E39;
+    font-size: 16px;
+    color: #5A6A4A; /* grønlig jordfarve */
     margin: 5px 0;
-    font-family: "Times New Roman", Times, serif;
 }
 
 /* TILMELD KNAP */
 .join {
-    background: #6A4E39;
+    background: #8CCB8A; /* mild grøn */
     color: white;
     margin-top: 12px;
 }
 
 /* MELD FRA / SLET */
 .event button {
-    background: #E8DCD3;
-    color: #3A2E25;
+    background: #F7C6D0; /* pastel lyserød */
+    color: #3A3F2D;
     margin-top: 10px;
 }
 
 .event button:hover {
-    background: #D8C8BC;
+    background: #F4A7B9; /* mørkere lyserød */
 }
