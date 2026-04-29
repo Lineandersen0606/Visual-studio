@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <h1>My events</h1>
+
+    <button class="navBtn" onclick="goBack()">← Return</button>
+
+    <div id="myEvents"></div>
+
+</div>
+
+<script>
+
+    function getEvents() {
+        return JSON.parse(localStorage.getItem("events")) || [];
+    }
+
+    function renderMyEvents() {
+        const container = document.getElementById("myEvents");
+        container.innerHTML = "";
+
+        const events = getEvents();
+
+        const myEvents = events.filter(e => e.usersJoined);
+
+        myEvents.forEach(event => {
+
+            const div = document.createElement("div");
+            div.className = "event";
+
+            const title = document.createElement("h2");
+            title.textContent = event.title;
+
+            const location = document.createElement("div");
+            location.textContent = event.location;
+
+            const time = document.createElement("div");
+            time.textContent = event.time;
+
+            const people = document.createElement("div");
+            people.textContent =  event.joined + "/" + event.max;
+
+            const button = document.createElement("button");
+            button.textContent = "Cancel";
+
+            button.onclick = function () {
+                leaveEvent(event.id);
+            };
+
+            div.appendChild(title);
+            div.appendChild(location);
+            div.appendChild(time);
+            div.appendChild(people);
+            div.appendChild(button);
+
+
+            // vis slet knap på event lavet at mig
+            if (event.createdByMe) {
+
+                const deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "Delete event";
+                deleteBtn.style.color = "white";
+                deleteBtn.style.marginTop = "5px";
+
+                deleteBtn.onclick = function () {
+                    deleteFromMyPage(event.id);
+                };
+
+                div.appendChild(deleteBtn);
+            }
+
+
+            container.appendChild(div);
+        });
+    }
+
+    // få viste slet knap til at vike
+    function deleteFromMyPage(id) {
+
+        let events = getEvents();
+
+        const index = events.findIndex(e => e.id === id);
+
+        if (index !== -1) {
+            events.splice(index, 1);
+        }
+
+        localStorage.setItem("events", JSON.stringify(events));
+
+        renderMyEvents();
+    }
+
+
+    function leaveEvent(id) {
+        const events = JSON.parse(localStorage.getItem("events"));
+
+        const event = events.find(e => e.id === id);
+
+        if (event) {
+            event.joined--;
+            event.usersJoined = false;
+        }
+
+        localStorage.setItem("events", JSON.stringify(events));
+
+        renderMyEvents();
+    }
+
+    function goBack() {
+        window.location.href = "index.html";
+    }
+
+    renderMyEvents();
+
+</script>
+
+</body>
+</html>

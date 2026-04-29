@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events in Brabrand</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <h1>Events in Brabrand</h1>
+
+    <button class="navBtn" onclick="goToMyPage()"> My page</button>
+
+    <button id="openFormBtn">+ Create event</button>
+
+    <div id="formContainer" class="hidden">
+        <input id="title" placeholder="Event name">
+        <input id="location" placeholder="Location">
+        <input id="time" placeholder="Time">
+        <input id="max" type="number" placeholder="Max participants">
+        
+
+
+<button class="join" onclick="addEvent()">Create event</button></div>
+
+    <div id="events"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+/* =========================
+   SIMPLE / CLEAN VERSION
+========================= */
+
+:root{
+  --cream:#fffaf4;
+  --green:#839c5d;
+  --light:#c8dda8;
+  --brown:#623e2a;
+  --line:#e8dfd4;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:"Times New Roman", serif;
+  background:var(--green);
+  color:var(--brown);
+  padding:20px 14px;
+}
+
+/* WRAPPER */
+
+.app{
+  max-width:430px;
+  margin:auto;
+  background:var(--cream);
+  border-radius:22px;
+  padding:22px 16px;
+}
+
+/* HEADER */
+
+h1{
+  text-align:center;
+  font-size:32px;
+  color:var(--brown);
+  margin-bottom:4px;
+}
+
+.subtitle{
+  text-align:center;
+  font-size:15px;
+  color:var(--brown);
+  opacity:.8;
+  margin-bottom:18px;
+}
+
+/* BUTTONS */
+
+button{
+  width:100%;
+  border:none;
+  border-radius:999px;
+  padding:13px;
+  font-size:16px;
+  font-weight:600;
+  font-family:"Times New Roman", serif;
+  cursor:pointer;
+}
+
+/* MIN SIDE + OPRET EVENT = ENS */
+
+.navBtn,
+#openFormBtn{
+  background:var(--light);
+  color:var(--brown);
+  margin-bottom:10px;
+}
+
+/* FORM */
+
+#formContainer{
+  background:#ffffff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:15px;
+  margin-bottom:16px;
+}
+
+.hidden{
+  display:none;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+  padding:11px 12px;
+  margin:7px 0;
+  border-radius:12px;
+  border:1px solid var(--line);
+  font-size:15px;
+  font-family:"Times New Roman", serif;
+  color:var(--brown);
+  background:white;
+}
+
+/* EVENTS */
+
+.event{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+  margin-top:14px;
+}
+
+.event h2{
+  font-size:21px;
+  margin-bottom:10px;
+  color:var(--brown);
+}
+
+.meta{
+  font-size:15px;
+  margin-bottom:6px;
+  line-height:1.4;
+}
+
+/* TILMELD MIG */
+
+.join{
+  background:var(--cream);
+  color:var(--brown);
+  border:2px solid var(--green);
+  margin-top:10px;
+}
+
+/* ANDRE KNAPPER I EVENT */
+
+.event button:not(.join){
+  background:var(--light);
+  color:var(--brown);
+  margin-top:8px;
+}
