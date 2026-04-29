@@ -12,19 +12,21 @@
 
     <h1>Events in Brabrand</h1>
 
-    <button class="navBtn" onclick="goToMyPage()"> My page</button>
+    <button class="navBtn" onclick="goToMyPage()">My page</button>
 
     <button id="openFormBtn">+ Create event</button>
 
     <div id="formContainer" class="hidden">
         <input id="title" placeholder="Event name">
         <input id="location" placeholder="Location">
-        <input id="time" placeholder="Time">
+
+        <input id="date" type="date">
+        <input id="time" type="time">
+
         <input id="max" type="number" placeholder="Max participants">
-        
 
-
-<button class="join" onclick="addEvent()">Create event</button></div>
+        <button class="join" onclick="addEvent()">Create event</button>
+    </div>
 
     <div id="events"></div>
 
