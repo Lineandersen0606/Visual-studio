@@ -17,11 +17,21 @@
     <button id="openFormBtn">+ Create event</button>
 
     <div id="formContainer" class="hidden">
+
         <input id="title" placeholder="Event name">
         <input id="location" placeholder="Location">
 
-        <input id="date" type="date">
-        <input id="time" type="time">
+        <!-- DATE FIELD -->
+        <div class="input-wrapper">
+            <input id="date" type="date" class="input-with-placeholder">
+            <span class="placeholder-text">Date</span>
+        </div>
+
+        <!-- TIME FIELD -->
+        <div class="input-wrapper">
+            <input id="time" type="time" class="input-with-placeholder">
+            <span class="placeholder-text">Time</span>
+        </div>
 
         <input id="max" type="number" placeholder="Max participants">
 

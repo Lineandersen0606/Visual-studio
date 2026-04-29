@@ -181,7 +181,6 @@ function renderMyEvents() {
     const events = loadEvents();
     container.innerHTML = "";
 
-    // Only show events created by the user
     const myCreatedEvents = events.filter(e => e.createdByMe === true);
 
     myCreatedEvents.forEach(event => {
