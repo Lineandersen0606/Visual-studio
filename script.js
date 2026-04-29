@@ -6,10 +6,35 @@ function saveEvents(events) {
 
 function loadEvents() {
     const data = localStorage.getItem("events");
-    if (data) return JSON.parse(data);
+    let events = [];
 
-    // No default events at all — completely empty for everyone
-    return [];
+    if (data) {
+        events = JSON.parse(data);
+    } else {
+        events = [];
+    }
+
+    // Ensure fixed "Running Club" event always exists
+    const runningId = 1;
+    const hasRunning = events.some(e => e.id === runningId);
+
+    if (!hasRunning) {
+        events.push({
+            id: runningId,
+            title: "Running Club",
+            location: "Gellerupparken",
+            date: "2026-05-12",
+            time: "18:00",
+            datetime: "2026-05-12T18:00",
+            max: 25,
+            joined: 0,
+            usersJoined: false,
+            createdByMe: false
+        });
+        saveEvents(events);
+    }
+
+    return events;
 }
 
 
@@ -131,7 +156,8 @@ window.addEvent = function () {
         datetime,
         max: Number(max),
         joined: 1,
-        usersJoined: true
+        usersJoined: true,
+        createdByMe: true
     };
 
     events.push(newEvent);
@@ -155,9 +181,10 @@ function renderMyEvents() {
     const events = loadEvents();
     container.innerHTML = "";
 
-    const myEvents = events.filter(e => e.usersJoined);
+    // Only show events created by the user
+    const myCreatedEvents = events.filter(e => e.createdByMe === true);
 
-    myEvents.forEach(event => {
+    myCreatedEvents.forEach(event => {
         const div = document.createElement("div");
         div.className = "event";
 
@@ -175,7 +202,7 @@ function renderMyEvents() {
 
         const button = document.createElement("button");
         button.textContent = "Delete event";
-        button.onclick = () => leaveEvent(event.id);
+        button.onclick = () => deleteEvent(event.id);
 
         div.appendChild(title);
         div.appendChild(location);
@@ -187,14 +214,15 @@ function renderMyEvents() {
     });
 }
 
-function leaveEvent(id) {
+
+// ---------------- DELETE EVENT (CONFIRMATION) ----------------
+
+function deleteEvent(id) {
     let events = loadEvents();
 
-    // ⭐ Ask for confirmation ⭐
     const confirmDelete = confirm("Are you sure you want to delete this event?");
     if (!confirmDelete) return;
 
-    // ⭐ Delete event completely ⭐
     events = events.filter(e => e.id !== id);
 
     saveEvents(events);
@@ -225,7 +253,7 @@ function closePopup() {
 }
 
 function unregisterFromPopup() {
-    leaveEvent(popupEventId);
+    deleteEvent(popupEventId);
     closePopup();
 }
 
