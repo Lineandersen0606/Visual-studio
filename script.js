@@ -129,6 +129,28 @@ function toggleJoin(id) {
 }
 
 
+// ---------------- SEND EVENT TO SERVER (CSV) ----------------
+
+function sendEventToServer(event) {
+    fetch("http://localhost:3000/api/events", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(event)
+    }).catch(err => console.error("CSV save failed:", err));
+}
+
+
+// ---------------- DELETE EVENT FROM SERVER (CSV) ----------------
+
+function deleteEventFromServer(id) {
+    fetch("http://localhost:3000/api/delete-event", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id })
+    }).catch(err => console.error("CSV delete failed:", err));
+}
+
+
 // ---------------- ADD EVENT (INDEX) ----------------
 
 window.addEvent = function () {
@@ -162,6 +184,7 @@ window.addEvent = function () {
 
     events.push(newEvent);
     saveEvents(events);
+    sendEventToServer(newEvent); // ⭐ CSV: tilføj linje
     renderEvents();
 
     document.getElementById("title").value = "";
@@ -214,7 +237,7 @@ function renderMyEvents() {
 }
 
 
-// ---------------- DELETE EVENT (CONFIRMATION) ----------------
+// ---------------- DELETE EVENT (FRONTEND + CSV) ----------------
 
 function deleteEvent(id) {
     let events = loadEvents();
@@ -225,6 +248,7 @@ function deleteEvent(id) {
     events = events.filter(e => e.id !== id);
 
     saveEvents(events);
+    deleteEventFromServer(id); // ⭐ CSV: fjern linje
 
     renderMyEvents();
     renderCalendar();
